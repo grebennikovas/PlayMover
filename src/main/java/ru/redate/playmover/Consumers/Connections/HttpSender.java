@@ -1,5 +1,8 @@
 package ru.redate.playmover.Consumers.Connections;
 
+import ru.redate.playmover.Consumers.Consumer;
+import ru.redate.playmover.Consumers.SpotifyConsumer;
+
 import java.io.*;
 import java.net.*;
 import java.nio.charset.Charset;

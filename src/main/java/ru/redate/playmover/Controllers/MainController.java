@@ -25,8 +25,7 @@ import java.util.PropertyResourceBundle;
 @RequestMapping("/api")
 public class MainController {
 
-    @Autowired
-    private Environment environment;
+    Consumer spotify = new SpotifyConsumer();
 
     @RequestMapping(value="/test", method = RequestMethod.GET)
     public ResponseEntity<String> test(){
@@ -36,9 +35,7 @@ public class MainController {
     @RequestMapping(value="/auth", method = RequestMethod.GET)
     public ResponseEntity<String> auth() throws IOException {
 
-        Consumer spotifyConsumer = new SpotifyConsumer();
-
-        String response = spotifyConsumer.authorize();
+        String response = spotify.authorize();
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -68,5 +65,10 @@ public class MainController {
                                                   @RequestParam(required = false) String error) {
         System.out.println("code: " + code + ", state: " + state + ", error: " + error);
         return new ResponseEntity<>("code: " + code + ", state: " + state + ", error: " + error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @RequestMapping(value = "/*")
+    public String index() {
+        return "index";
     }
 }

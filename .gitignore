@@ -32,4 +32,11 @@ build/
 ### VS Code ###
 .vscode/
 
+/src/main/js/node_modules
+
 src/main/resources/connection.properties
+/src/main/js/src/build
+/src/main/js/build
+
+/src/main/js/src/coverage
+/src/main/js/coverage
